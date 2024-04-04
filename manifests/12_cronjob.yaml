@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: my-cronjob
+  namespace: k8s-demystified
+  labels:
+    app: my-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: my-cronjob
+          labels:
+            app: my-cronjob
+        spec:
+          containers:
+            - name: date-echo
+              image: rockylinux:9-minimal
+              command:
+                - "bin/bash"
+                - "-c"
+                - 'echo "Is getting late! $(date)"'
+          restartPolicy: Never

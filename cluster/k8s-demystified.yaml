@@ -1,0 +1,17 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: k8s-demystified
+servers: 1
+agents: 2
+kubeAPI:
+  hostPort: "6550"
+ports:
+  - port: 8081:80
+    nodeFilters:
+      - loadbalancer
+volumes:
+  - volume: "${PWD}/cluster/k3dvol:/tmp/k3dvol"
+    nodeFilters:
+      - server:0
+      - agent:*

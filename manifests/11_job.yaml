@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-job
+  namespace: k8s-demystified
+  labels:
+    app: my-job
+spec:
+  template:
+    metadata:
+      name: my-job
+      labels:
+        app: my-job
+    spec:
+      containers:
+        - name: counter
+          image: rockylinux:9-minimal
+          command:
+            - "bin/bash"
+            - "-c"
+            - 'echo "Is getting late! $(date)"'
+      restartPolicy: Never

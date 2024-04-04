@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+  namespace: k8s-demystified
+data:
+  config.yaml: |
+    cache-server: tcp://redis-0.redis.redis.svc.cluster.local:6379
+---
+
