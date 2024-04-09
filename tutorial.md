@@ -64,7 +64,7 @@ kubectl scale --replicas=7 deployment/my-deployment
 kubectl apply -f ./manifests/04_service.yaml
 
 # look at service
-kubectl get service -o service -o service -o wide
+kubectl get service -o wide
 
 # exec into a pod and curl the service
 kubectl exec -it deployment/my-deployment -- sh
@@ -87,7 +87,7 @@ kubectl get ingress my-ingress
 
 ```sh
 # Create the redis namespace
-kubectl create namespace _redis
+kubectl create namespace redis
 
 # Create the redis statefulset
 kubectl apply -f ./manifests/06_redis.yaml
