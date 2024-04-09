@@ -127,12 +127,9 @@ curl http://localhost:8081/cache/foo -v
 ## PersistentVolumes
 
 ```sh
-# Create a persistentvolume and a persistentvolumeclaim
-kubectl apply -f ./manifests/09_persistentvolume.yaml
-
 # delete and re-create the statefulset now with persistentvolume
 kubectl delete statefulset redis -n redis
-kubectl apply -f ./manifests/10-redis-pvc.yaml
+kubectl apply -f ./manifests/09-redis-pvc.yaml
 
 # now you can use the curl commands above to add keys to the cache and they will survive the restart
 ```
@@ -141,8 +138,8 @@ kubectl apply -f ./manifests/10-redis-pvc.yaml
 
 ```sh
 # Create a Job
-kubectl apply -f ./manifests/11_job.yaml
+kubectl apply -f ./manifests/10_job.yaml
 
 # Create a CronJob
-kubectl apply -f ./manifests/12_cronjob.yaml
+kubectl apply -f ./manifests/11_cronjob.yaml
 ```
