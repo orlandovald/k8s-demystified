@@ -38,13 +38,9 @@ spec:
           volumeMounts:
             - name: redis-data
               mountPath: /data
-      volumes:
-        - name: redis-data
-          persistentVolumeClaim:
-            claimName: redis-pvc
   volumeClaimTemplates:
     - metadata:
-        name: redis-pvc
+        name: redis-data
       spec:
         accessModes: ["ReadWriteOnce"]
         storageClassName: "local-path"
